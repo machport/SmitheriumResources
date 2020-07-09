@@ -1,81 +1,34 @@
---[[
-the smitherium init script, feel free to use this in your exploit if you want.
-Smitherium auto runs this so you dont have to search for it yourself. however it doesnt download this, it simply has a minified copy in its DLL
-]]
-local genv = {}
 local Camera = {}
 setmetatable(Camera,{__index=function(self,key)
-    if key == "Fov" then
+    if key == 'FOV' then
         return LocalPlayer():GetFOV()
     end
-    if key == "Object" then
+    if key == 'Object' then
         return LocalPlayer():GetViewEntity()
     end
 end
 })
+_G.Camera= Camera
 local Plyr = {}
 setmetatable(Plyr,{__index = function(self,key)
-    if key == "Ammo" then
+    if key == 'Ammo' then
         return LocalPlayer():GetAmmo()
     end
-    if key == "Name" then
+    if key == 'Name' then
         return LocalPlayer():GetName()
     end
-    if key == "RunSpeed" then
+    if key == 'RunSpeed' then
         return LocalPlayer():GetRunSpeed()
     end
-    if key == "JumpPower" then
+    if key == 'JumpPower' then
         return LocalPlayer():GetJumpPower()
     end
-    if key == "Alive" then
+    if key == 'Alive' then
         return LocalPlayer():Alive()
     end
-    if key == "Crouching" then
+    if key == 'Crouching' then
         return LocalPlayer():Crouching()
-    end
-    if key == "Drive" then
-        return LocalPlayer().EnterVehicle
     end
 end
 })
-setmetatable(genv,{__newindex=function(...)
-  error('The metatable is locked.')
-end})
-function getgenv()
-  return genv
-end
-function getgmenv()
-    return _G
-end
-function setclipboard(text)
-    LocalPlayer():SetClipboardText(text)
-end
-getgenv().wait = function(time)
-  if time == nil then
-    error('A value to the function wait must be supplied')
-  end
-  local clock = os.clock
-   local t0 = clock()
-   while clock() - t0 <= value do
-   end
-end
-local 
-
-setmetatable(genv,{__newindex=function(...)
-  error("The metatable is locked.")
-end})
-function getgenv()
-  return genv
-end
-getgenv().wait = function(time)
-  if time == nil then
-    error("A value to the function 'wait' must be supplied")
-  end
-  local clock = os.clock
-   local t0 = clock()
-   while clock() - t0 <= value do
-   end
-end
-for i,v in pairs(genv) do
-  _G.i = v
- end
+_G.Plyr = Plyr
