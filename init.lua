@@ -1,4 +1,4 @@
-local genv = {}local genv = {}
+local genv = {}
 local Camera = {}
 setmetatable(Camera,{__index=function(self,key)
     if key == "Fov" then
