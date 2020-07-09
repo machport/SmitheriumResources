@@ -1,3 +1,7 @@
+--[[
+the smitherium init script, feel free to use this in your exploit if you want.
+Smitherium auto runs this so you dont have to search for it yourself. however it doesnt download this, it simply has a minified copy in its DLL
+]]
 local genv = {}
 local Camera = {}
 setmetatable(Camera,{__index=function(self,key)
